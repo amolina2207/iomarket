@@ -1,0 +1,50 @@
+page-msg-modal {
+    &.ion-page{
+        height: 90%;
+        width: 90%;
+        margin: 10% 5%;
+        }
+    .scroll-content{
+        overflow:hidden;
+        }
+    .header-ios{
+        width:$mainHeight;
+        left:auto;
+        right:0px;
+        .toolbar-background-ios{
+            background:none;
+            }
+        .toolbar-ios{
+            padding:0px;
+            }
+        .bar-buttons{
+            margin:0px;
+            .bar-button-ios{
+                padding:0px;
+                width:$mainHeight;
+                height:$mainHeight;
+                .icon {
+                    color:color($colors,mainColor);
+                    font-size:$iconFont +1;
+                    }
+                }
+            }
+        }
+    p{
+        margin:0px;
+        &:first-of-type{
+            @include whiteNormal(15px,1);
+            }
+        &:last-of-type{
+            font-size: 1.5rem!important;
+            font-weight: 600;
+            margin-top: 5px;
+            line-height: 22px;
+            max-height: calc(100% - 20px);
+            overflow-y: scroll;
+            }
+        }
+    }
+.modal-wrapper{
+    background:rgba(0,0,0,.5);
+    }

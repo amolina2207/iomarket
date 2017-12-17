@@ -1,0 +1,39 @@
+page-setting {
+    .signApp{
+        height:auto;
+        padding:0px;
+        h4{
+            text-align:left;
+            color:color($colors,dark);
+            margin:$mainMarg 0px;
+            text-transform:capitalize;
+            &:first-child{
+                margin-top:0px!important;
+                }
+            }
+        .item-ios{
+            border-color:color($colors,secColor)!important;
+            &.langItem{
+                border:none!important;
+                background-color:color($colors,secColor);
+                .label-ios{
+                    color:#fff;
+                    }
+                .select-text{
+                    color:#fff;     
+                    }
+                }
+            }
+        .checkItems{
+            border-top:1px solid color($colors,mainColor);
+            border-bottom:1px solid color($colors,mainColor);
+            margin:$mainMarg 0px;
+            display:inline-block;
+            width:100%;
+            .item-checkbox{
+                border:none!important;
+                margin-bottom:0px;
+                }
+            }
+        }
+    }

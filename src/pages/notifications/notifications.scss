@@ -1,0 +1,31 @@
+page-notifications {
+    .list-ios{
+        padding:$mainMarg $mainMarg*2;
+        }
+    .item-ios{
+        background:none;
+        border-bottom:2px solid color($colors,mainColor)!important;
+        padding:$mainMarg 0px!important;
+        margin-bottom:0px!important;
+        .label-ios{
+            margin:0px;
+            }
+        .itemContent{
+            background:rgba(color($colors,secColor),.5);
+            p{
+                color:color($colors,dark);
+                @include whiteNormal(16px,1);
+                }
+            h5{
+                color:color($colors,dark);
+                font-weight:600;
+                @include whiteNoWrap(30px);
+                }
+            }
+        &.read{
+            .itemContent{
+                background:none;
+                }
+            }
+        }
+    }

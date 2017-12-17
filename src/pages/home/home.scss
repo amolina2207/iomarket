@@ -1,3 +1,115 @@
 page-home {
+    .scroll-content{
+        overflow:hidden;
+        }
+    .segment-ios{
+        margin-top:$mainMarg;
+         .segment-button{
+            padding:$segmentPadding;
+            border:none;
+            height: initial;
+            &:first-of-type{
+                border-radius:0px;  
+                }
+            &:last-of-type{
+                border-radius:0px;
+                }
+            &.segment-activated{
+                background:none;
+                span{
+                    color:#fff;
+                    }
+                }
+            span{
+                background-color:color($colors,secColor);
+                color:color($colors,dark);
+                @include whiteNoWrap($segmentSpanHeight);
+                display:block;
+                padding: 0px 5px;
+    
+                }
+            }
+        }
+    }
+.listContent{
+    $x:$segmentSpanHeight + (2*$segmentPadding) + $mainMarg;
+    height:calc(100% - #{$x} );
+    overflow-y:scroll;
+    .itemContent{
+        background-color:color($colors,light);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        p{
+            margin: 0px 0px $mainMarg;
+            text-align: right;
+            max-width: 70%;
+            float: right;
+            color:color($colors,dark);
+            @include whiteNoWrap(15px);
+            }
+        
+        img{
+            width:90%;
+            clear: both;   
+            margin: auto;
+            display: block;
+            }
+        h5{
+            color:color($colors,dark);
+            text-transform:capitalize;
+            @include whiteNoWrap(20px);
+            margin:$mainMarg/2 0px 0px;
+            }
+        .grid{
+            padding:0px;
+            .col{
+                padding:2px;
+                overflow:hidden;
+                p{
+                    max-width:100%;
+                    width:100%;
+                    margin:0px;
+                    text-align:center;
+                    }
+                &.oldCost{
+                    p{
+                        color:color($colors,grayColor);
+                        text-decoration:line-through;
+                        }
+                    }
+                }
+            }
 
-}
+        .button{
+
+            &.button-block{
+                height:$homeBtnHeight;
+                line-height:$homeBtnHeight;
+                background-color:color($colors,secColor);
+                .button-inner{  
+                    @include whiteNoWrap($homeBtnHeight);
+                    font-size:$mainFont - .1;
+                    color:color($colors,dark);
+                    font-weight:bold;
+                    .icon{
+                        font-size:$mainFont - .1;
+                        font-weight:bold;
+                        }
+                    }
+                }
+            }
+        }
+    .offer{
+        background-color:color($colors,mainColor);
+        @include whiteNoWrap($offerHeight);
+        width:85px;
+        padding: 0px 15px;
+        transform: rotate(-45deg);
+        top: 14px;
+        left: -18px;
+        position: absolute;
+        font-size: $mainFont - .2;
+        font-weight: bold;
+        }
+    }

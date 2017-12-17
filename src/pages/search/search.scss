@@ -1,0 +1,14 @@
+page-search {
+
+}
+.newForm{
+    @extend .signApp;
+    padding: 0px!important;
+    height:auto!important;
+    .item-ios{
+        &.item-block{
+            border: none!important;
+            background-color:color($colors,secColor);
+            }
+        }
+    }

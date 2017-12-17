@@ -1,0 +1,92 @@
+@import "../assets/animate/animate.scss";
+.animateApp{
+// ********************** My Classes that extended *************
+
+    .bounceInLeft{
+        @include bounceInLeft(
+            $duration:1.5s,
+            $count: 1,
+            $delay: 0s,
+            $function: ease, 
+            $fill: both
+            ); 
+        } 
+
+    .bounceInRight{
+        @include bounceInRight(
+            $duration:2s,
+            $count: 1,
+            $delay: 0s,
+            $function: ease, 
+            $fill: both
+            );
+        }
+
+    .bounceInDown{
+        @include bounceInDown(
+            $duration:2s,
+            $count: 1,
+            $delay: 0s,
+            $function: ease, 
+            $fill: both
+            );
+        }
+
+    .jello{
+        @include jello(
+            $duration:.5s,
+            $count: 1,
+            $delay: .5s,
+            $function: ease, 
+            $fill: both
+            ); 
+        }
+// *************************************
+    .signApp{
+        img{
+            @extend .bounceInDown;
+            }
+        h4{
+           @extend .bounceInRight;  
+            }
+        }
+    [text-left]{
+        .icon{
+            @extend .bounceInLeft;
+            } 
+        }
+    [text-right]{
+        .icon{
+            @extend .bounceInRight;
+            }
+        }
+    .listContent{
+        >.grid{
+            >.row{
+                >.col{
+                    @extend .jello;    
+                    }
+                }
+            }
+        }
+    page-setting{
+        h4{
+            animation:none!important;
+            }
+        }
+    page-check-out{
+        .visa{
+            .item-ios{
+                &:nth-child(1){
+                    @extend .bounceInLeft;
+                    }
+                &:nth-child(2){
+                    @extend .bounceInDown;
+                    }
+                &:nth-child(3){
+                    @extend .bounceInRight;
+                    }
+                }
+            }
+        }
+    }

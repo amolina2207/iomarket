@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+        <button ion-button (click)="logout()">
+          <ion-icon name="md-power"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list >
+      <ion-item *ngFor="let item of items" (click)="readMsg(item); openModal()"[ngClass]="{'read':item.num===1}">
+        <div padding class="itemContent">
+          <p>{{item.day}}-{{item.month}}/{{item.time}}</p>
+          <h5>{{item.event}}</h5>
+        </div>
+      </ion-item>
+  </ion-list>
+ 
+</ion-content>

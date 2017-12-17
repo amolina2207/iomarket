@@ -1,17 +1,151 @@
+
 <ion-header>
+
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="logout()">
+          <ion-icon name="md-power"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>Deals of the weak</ion-title>
+
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+<ion-content>
+    <ion-segment [(ngModel)]="category">
+        <!--<ion-segment-button value="all" >
+            <span>All</span>
+        </ion-segment-button>-->
+        <ion-segment-button  value="vegetables" >
+            <span>Vegetables</span>
+        </ion-segment-button>
+        <ion-segment-button  value="meats">
+            <span>Meats</span>
+        </ion-segment-button>
+        <ion-segment-button value="bakery">
+            <span>Bakery</span>
+        </ion-segment-button>
+    </ion-segment>
+    <div class="listContent" [ngSwitch]="category">
+      <!--list of all -->
+        <ion-grid padding   *ngIf="category==null">
+            <ion-row>
+                <ion-col  col-6 col-sm-4 col-md-3 col-lg-2 padding *ngFor="let item of items">
+                    <div class="itemContent" padding>
+                        <p>{{item.weight}}</p>
+                        <img src="{{item.img}}"/>
+                        <h5>{{item.title}}</h5>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col *ngIf="item.offer!=0" class="oldCost">
+                                    <p>{{item.oldCost}}$</p>
+                                </ion-col>
+                                <ion-col col>
+                                    <p>{{item.cost}}$</p>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                        <button ion-button block icon-left (click)="addProductCart()">
+                          <ion-icon name="md-add"></ion-icon>
+                          Add
+                        </button>
+
+                        <span class="offer" *ngIf="item.offer!=0">{{item.offer}}% off</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+         <!--list of Vegetables -->
+        <ion-grid padding   *ngSwitchCase="'vegetables'">
+            <ion-row>
+                <ion-col  col-6 col-sm-4 col-md-3 col-lg-2 padding *ngFor="let item of vegetables">
+                    <div class="itemContent" padding>
+                        <p>{{item.weight}}</p>
+                        <img src="{{item.img}}"/>
+                        <h5>{{item.title}}</h5>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col *ngIf="item.offer!=0" class="oldCost">
+                                    <p>{{item.oldCost}}$</p>
+                                </ion-col>
+                                <ion-col col>
+                                    <p>{{item.cost}}$</p>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                        <button ion-button block icon-left (click)="addProductCart()">
+                          <ion-icon name="md-add"></ion-icon>
+                          Add
+                        </button>
+
+                        <span class="offer" *ngIf="item.offer!=0">{{item.offer}}% off</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+          <!--list of meats -->
+        <ion-grid padding  *ngSwitchCase="'meats'">
+            <ion-row>
+                <ion-col  col-6 col-sm-4 col-md-3 col-lg-2 padding *ngFor="let item of meats">
+                    <div class="itemContent" padding>
+                        <p>{{item.weight}}</p>
+                        <img src="{{item.img}}"/>
+                        <h5>{{item.title}}</h5>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col *ngIf="item.offer!=0" class="oldCost">
+                                    <p>{{item.oldCost}}$</p>
+                                </ion-col>
+                                <ion-col col>
+                                    <p>{{item.cost}}$</p>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                        <button ion-button block icon-left (click)="addProductCart()">
+                          <ion-icon name="md-add"></ion-icon>
+                          Add
+                        </button>
+
+                        <span class="offer" *ngIf="item.offer!=0">{{item.offer}}% off</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+         <!--list of bakery -->
+        <ion-grid padding *ngSwitchCase="'bakery'">
+            <ion-row>
+                <ion-col  col-6 col-sm-4 col-md-3 col-lg-2 padding *ngFor="let item of bakery">
+                    <div class="itemContent" padding>
+                        <p>{{item.weight}}</p>
+                        <img src="{{item.img}}"/>
+                        <h5>{{item.title}}</h5>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col col *ngIf="item.offer!=0" class="oldCost">
+                                    <p>{{item.oldCost}}$</p>
+                                </ion-col>
+                                <ion-col col>
+                                    <p>{{item.cost}}$</p>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                        <button ion-button block icon-left (click)="addProductCart()">
+                          <ion-icon name="md-add"></ion-icon>
+                          Add
+                        </button>
+
+                        <span class="offer" *ngIf="item.offer!=0">{{item.offer}}% off</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+
 </ion-content>

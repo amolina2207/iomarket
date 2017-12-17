@@ -1,0 +1,35 @@
+
+<ion-content >
+  <div class="signApp">
+      <img  src="assets/img/logo.png"/>
+      <h4>Sign In</h4>
+      <ion-list>
+          <ion-item >
+              <ion-icon name="md-person" item-left></ion-icon>
+              <ion-input type="text" placeholder="E-mail / Username"></ion-input>
+          </ion-item>
+
+          <ion-item >
+              <ion-icon name="md-lock" item-left></ion-icon>
+              <ion-input type="password" placeholder="Password"></ion-input>
+          </ion-item>
+      </ion-list>
+      <button ion-button block color="mainColor" [navPush]="TabsPage">Log In</button>
+      <p>Forget Password!</p>
+      <p>OR</p>
+      <ion-grid>
+          <ion-row>
+              <ion-col col-6 text-left>
+                  <ion-icon name="logo-facebook" [navPush]="TabsPage"></ion-icon>
+              </ion-col> 
+              <ion-col col-6 text-right>
+                  <ion-icon  name="logo-twitter" [navPush]="TabsPage"></ion-icon>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+
+</ion-content>
+<ion-footer class="signFoot">
+    <button ion-button block color="mainColor" (click)="goToSignUp()">Sign Up</button>
+</ion-footer>

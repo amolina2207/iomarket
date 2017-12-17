@@ -1,0 +1,40 @@
+page-check-out {
+    h4{
+        @include whiteNormal(40px,2);
+        margin-top:0px!important;
+        }
+    .visa{
+        display: inline-block;
+        padding: 0px $mainMarg;
+        .item-ios{
+            &.item-block{
+                width:calc( 100% / #{$numOfVisaInLine});
+                text-align:center;
+                background:none;
+                margin-bottom:0px;
+                float:left;
+                padding:2px;
+                img{
+                    border-radius:$visaBorderRadius;
+                    height: $visaHeight;
+                    &.active{
+                        border:$activeBorderSize solid color($colors,secColor);
+                        }
+                    }
+                }
+            }
+        }
+    .newForm{
+        padding:$mainMarg 0px $mainMarg!important;
+        border-bottom:$borderInputSize solid color($colors,mainColor);
+        margin-bottom:$mainMarg;
+        }
+   
+    }
+.footer{
+     .button{
+        &.button-block{
+             margin-top:0px;
+            }
+        }
+    }

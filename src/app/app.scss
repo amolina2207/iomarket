@@ -1,16 +1,204 @@
-// http://ionicframework.com/docs/theming/
+// mixin in all App
+@mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+    };
 
+@mixin whiteNormal($height,$lineNum){
+    white-space: normal;
+    word-break: break-all;
+    max-height: $height;
+    line-height: $height / $lineNum;
+    display: block;
+    overflow: hidden;
+    }
+@mixin whiteNoWrap($height){
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    height: $height;
+    line-height: $height;
+    display: block;
+    }
+// Padding
+[padding]{
+    padding:$mainMarg!important;
+    .scroll-content{
+        padding:$mainMarg!important; 
+        }
+    }
+[padding-left]{
+    padding-left:$mainMarg!important; 
+    }
+[padding-right]{
+    padding-right:$mainMarg!important; 
+    }
+//Style of img Background
+.imgBg{
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;  
+    }
+//Main Style of buttons
+.button-ios{
+    &.button-block{
+        border-radius:$mainRadius;
+        max-height:$mainHeight;
+        height:$mainHeight;
+        margin:$mainMarg 0px 0px 0px;
+        box-shadow:none;
+        padding:0px $mainMarg;
+        .button-inner{  
+            @include whiteNoWrap($mainHeight);
+            display: inline-block;
+            color:#fff;
+            text-transform: uppercase;
+            font-size:$mainFont;
+            }
+        }
+    }
+// ********** select list ***********
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+.alert-ios{
+    .alert-head{
+        background-color:color($colors,dark);
+        padding:12px 8px;
+        .alert-title{
+            margin:0px;
+            color:#fff;
+            @include whiteNormal(40px,2);
+            }
+        }
+    .alert-message{
+        &:empty{
+            padding:0px;
+            }
+        }
+    .alert-button{
+        background-color:color($colors,mainColor);
+        color:#fff;
+        border:none!important;
+        &:first-child{    
+            background-color:color($colors,secColor);
+            }
+        &.activated{
+            background-color:color($colors,dark);
+            }
+        }
+    [aria-checked=true]{
+        .alert-radio-label{
+            color:color($colors,mainColor);
+            }
+        .alert-radio-inner{
+            border-color:color($colors,mainColor);
+            }
+        }
+    }
+// ************** picker **********
+.picker-ios{
+    .picker-wrapper{
+        border-top:none;
+        .picker-toolbar-button {
+            text-align:center;
+            background-color:color($colors,mainColor);   
+            .button{
+                color:#fff;
+                width:100%;
+                border-radius:0px;
+                &.activated{
+                    opacity:1;
+                    background-color:color($colors,dark);
+                    }
+                }
+            &.picker-toolbar-cancel{
+                background-color:color($colors,secColor);
+                }
+            }
+        }
+    }
+// ************ Ion List ********
+
+.list-ios{
+    margin:0px;
+   >.item-ios{
+        padding:0px;
+        margin-bottom:$mainMarg;
+        &:last-child{
+            border-bottom:none;
+            margin-bottom:0px;
+            }
+        &:first-child{
+            border-top:none;
+            }
+        &.item-block{
+            .item-inner{
+                padding:0px;
+                border-bottom:none;
+                .label-ios{
+                    margin:0px;
+                    }
+                }
+            min-height: 10px;
+            }
+        }
+    .item-checkbox{
+        padding: $mainMarg 0px!important;
+        background: none;
+        direction: rtl;
+        .checkbox-ios {
+            margin:0px 0px 0px $mainMarg !important;
+            .checkbox-checked {
+                .checkbox-inner{
+                    width:$checkboxCheckmarkWidth;
+                    height: $checkboxCheckmarkHeight;
+                    }
+                }
+            }
+        .item-inner{
+            direction:ltr;
+            .label-ios{
+                @include whiteNormal(40px,2);
+                }
+            }
+        .item-cover{
+            padding:0px;
+            }
+        }
+    }
+// Header style 
+.header-ios{
+    .toolbar-background-ios{
+        background-color:color($colors,mainColor);
+        border:none;
+        }
+    .bar-button-default-ios{
+        &.activated{
+            opacity:1;
+            }
+        
+        .badge-ios{
+            position: absolute;
+            top: -1px;
+            right: -2px ;
+            background-color:color($colors,dark);
+            padding:1px 4px;
+            }
+        }
+    }
+
+// Scroll Content in all app
+.content-ios{
+    background-color:color($colors,secColor) + #414098;
+    &:not([no-bounce]){
+         > .scroll-content{
+             &::before{
+                 bottom:0px;
+                }
+            &::after{
+                 top:0px;
+                }
+            }
+        }
+    }

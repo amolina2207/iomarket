@@ -1,0 +1,112 @@
+page-sign-in {
+    .grid{
+        padding:0px;
+        width: 145px;
+        .icon{
+            font-size:$iconFont + .5;
+            color:#fff;
+            width:$mainHeight;
+            height:$mainHeight;
+            line-height:$mainHeight;
+            border-radius:50%;
+            text-align:center;
+            }
+        .col{
+            padding:0px;
+            &:first-child{
+                .icon{
+                    background-color:color($colors,faceColor);
+                    }
+                }
+            &:last-child{
+                .icon{
+                    background-color:color($colors,twitterColor);
+                    }
+                }
+            }
+        }
+    }
+.signApp{
+    height:100%;
+    text-align:center;
+    padding:0px $mainMarg;
+    img{
+        width:40%;
+        }
+    h4{
+        text-transform: uppercase;
+        color:color($colors,mainColor);
+        @include whiteNormal(20px,1);
+        margin-bottom:$mainMarg * 2;
+        }
+    p{  
+        color:color($colors,dark);
+        @include whiteNormal(20px,1);
+        font-weight:600;
+        display:inline-block;
+        width:100%;
+        margin-top:$mainMarg;
+        margin-bottom:0px;
+        }
+    .item-ios{
+        padding:0px $mainMarg;
+        background:none;
+        border: $borderInputSize solid color($colors,mainColor)!important;
+        @include placeholder {
+            color:color($colors,dark);
+            font-weight:500;
+            text-transform:capitalize;
+            }
+        .text-input-ios{
+            margin:0px;
+            width:100%;
+            height:$mainHeight;
+            font-size:$inputFont;
+            font-weight:$inputWeight;
+            transform:none!important;
+            }
+         ion-icon{
+             &[item-left]{
+                margin:0px $mainMarg 0px 0px;
+                min-height: 0;
+                font-size: $iconFont;
+                }
+            color:color($colors,mainColor);  
+            }
+        &.item-select{
+            .label-ios{
+                margin:0px;
+                line-height:$mainHeight;
+                height:$mainHeight;
+                max-width:90px;
+                font-size:$inputFont;
+                font-weight:$inputWeight;
+                }
+            .select-ios{
+                margin-left:10px;
+                padding:0px;
+                width:calc(100% - 100px);
+                max-width:calc(100% - 100px);
+                .select-text{
+                    text-align:right;
+                    font-size:$inputFont;
+                    font-weight:$inputWeight;
+                    }
+                .select-icon{
+                    width:20px;
+                    margin-left:$mainMarg;
+                    .select-icon-inner{
+                        color:color($colors,mainColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+.signFoot{
+    .button-ios{
+        &.button-block{
+            margin-top:0px;
+            }
+        }
+    }

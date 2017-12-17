@@ -1,0 +1,115 @@
+page-cart {
+    .listContent{
+        height:auto;
+        overflow-y:auto;
+        .grid{
+            padding-bottom:0px!important;
+            .button{
+                &.button-block{
+                    margin-top:2px;
+                    background-color:color($colors,mainColor);
+                    .button-inner{
+                        color:#fff;
+                        text-transform:capitalize;
+                        font-weight:normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+.twoBtns{
+    padding:0px $mainMarg*2 $mainMarg;
+    text-align:center;
+    .grid{ 
+        padding:0px;
+        border: $borderInputSize+1 solid  color($colors,secColor);
+        .col{
+            padding:0px;
+            h4{
+                margin:0px;
+                padding:0px 5px;
+                background-color:color($colors,secColor);
+                color:color($colors,dark);
+                @include whiteNoWrap($mainHeight);
+                }
+            .button{
+                &.button-block{
+                    margin:0px;
+                    background-color:#fff;
+                    .button-inner{
+                        color:color($colors,dark);
+                        text-transform:capitalize;
+                        font-weight:600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+.countSelect{
+    text-align:center;
+    .col{
+        padding:0px!important;
+        }
+    .count{
+        .col{
+            padding:0px!important;
+            }
+        .icon{
+            height:$countHeight;
+            line-height:$countHeight;
+            display:block;
+            background-color:color($colors,secColor);
+            color:color($colors,dark);
+            }
+        .item-ios{
+            &.item-block{
+                padding: 0px 2px;
+                font-size:$mainFont;
+                background: none;
+                .text-input-ios{
+                    margin: 0px;
+                    width: 100%;
+                    height:$countHeight;
+                    line-height:$countHeight;
+                    text-align: center;
+                    color:color($colors,dark);
+                    }
+                }
+            }
+        }
+    .item-select{
+        padding-left:2px;
+        .label-ios{
+            display:none;
+            }
+        .select-ios{
+            max-width: 100%;
+            width: 100%;
+            padding: 0px 2px;
+            background-color:color($colors,mainColor);
+            .select-text{
+                color:color($colors,dark);
+                font-size:$mainFont - .1;
+                height:$countHeight;
+                line-height:$countHeight;
+                text-align: center;
+                }
+            .select-icon{
+                height:$countHeight;
+                .select-icon-inner{
+                    left: 0px;
+                    right: 0px;
+                    margin: 0px auto;
+                    border-top: 5px solid;
+                    border-right: 4px solid transparent;
+                    border-left: 4px solid transparent;
+                    color:color($colors,dark);
+                    margin-top:-2px;
+                    }
+                }
+            }
+        }
+    }

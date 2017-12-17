@@ -1,16 +1,6 @@
 // Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
-
-// Font path is used to include ionicons,
-// roboto, and noto sans fonts
+// http://ionicframework.com/docs/v2/theming/
 $font-path: "../assets/fonts";
-
-
-// The app direction is used to include
-// rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
-$app-direction: ltr;
-
 
 @import "ionic.globals";
 
@@ -20,7 +10,7 @@ $app-direction: ltr;
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 
 
@@ -37,17 +27,72 @@ $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  light:      #f3f3f3,
+  dark:       #212121,
+  mainColor:#ff9800,
+  secColor:#afb42b,
+  faceColor:#566f98,
+  twitterColor:#32ccfe,
+  grayColor:#757575,
 );
 
 
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
 
 
+// App  Variables
+$mainFont:1.3rem;
+ $appFonts:(h3:$mainFont + .3,h4:$mainFont + .1,h5:$mainFont,p:$mainFont - .1);
+ @each $head , $fontSize in $appFonts {
+      #{$head}{
+        font-size:$fontSize!important;
+      }
+ }
+$iconFont:1.8rem;
+$borderInputSize:1px; 
+$mainHeight:44px;
+$mainRadius:0px;
+$mainMarg:8px;
+$menu-width:240px;
+$menu-small-width:$menu-width;
 
+// header variables
+$toolbar-ios-title-font-size:$mainFont;
+$toolbar-ios-title-text-color:#fff;
+$toolbar-ios-title-font-weight:400;
+$toolbar-ios-button-color:#fff;
+$badge-font-size:1.2rem;
+
+// Home Page Variables
+$segmentSpanHeight:30px;
+$segmentPadding:1px;
+$homeImgHeight:88px;
+$homeBtnHeight:28px;
+$offerHeight:18px;
+//Cart Variables 
+
+$countHeight:30px;
+// check out Variables
+$visaHeight:60px;
+$numOfVisaInLine:3;
+$activeBorderSize:3px;
+$visaBorderRadius:8px;
+
+$checkbox-ios-icon-border-radius:0px;
+$checkbox-ios-icon-size:20px;
+$checkbox-ios-background-color-off:color($colors,secColor);
+$checkbox-ios-background-color-on:color($colors,secColor);
+$checkbox-ios-icon-border-width:0px;
+$checkbox-ios-icon-checkmark-width:2px;
+$checkbox-ios-disabled-opacity:1;
+
+$checkboxCheckmarkWidth:5px;
+$checkboxCheckmarkHeight: 10px;
+
+
+// Input Variables
+
+$inputFont:$mainFont;
+$inputWeight:500;
 
 // App Material Design Variables
 // --------------------------------------------------
@@ -72,11 +117,12 @@ $colors: (
 
 @import "ionic.theme.default";
 
-
+// Animation
+@import "../app/myAnimation.scss";
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/ionicons/
+// http://ionicframework.com/docs/v2/ionicons/
 
 @import "ionic.ionicons";
 

@@ -3,36 +3,66 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SignUpPage } from '../pages/sign-up/sign-up';
+import { SignInPage } from '../pages/sign-in/sign-in';
+import { ShippingAddressPage } from '../pages/shipping-address/shipping-address';
+import { SettingPage } from '../pages/setting/setting';
+import { SearchPage } from '../pages/search/search';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { MsgModalPage } from '../pages/msg-modal/msg-modal';
+import { CheckOutPage } from '../pages/check-out/check-out';
+import { CartPage } from '../pages/cart/cart';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
+
+var config = {
+      backButtonText: '',
+      iconMode: 'ios',
+      mode:'ios',
+      modalEnter: 'modal-slide-in',
+      modalLeave: 'modal-slide-out',
+      tabsPlacement: 'bottom',
+      pageTransition: 'ios',
+    };
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
-    SignUpPage
+    SignUpPage,
+    SignInPage,
+    ShippingAddressPage,
+    SettingPage,
+    SearchPage,
+    NotificationsPage,
+    MsgModalPage,
+    CheckOutPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, config),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
-    SignUpPage
+    SignUpPage,
+    SignInPage,
+    ShippingAddressPage,
+    SettingPage,
+    SearchPage,
+    NotificationsPage,
+    MsgModalPage,
+    CheckOutPage,
+    CartPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,50 @@
+<ion-header class="signHead">
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <div class="signApp">
+      <img  src="assets/img/logo.png"/>
+      <h4>Shaipping Address</h4>
+      <ion-list>
+          <ion-item >
+              <ion-icon name="md-person" item-left></ion-icon>
+              <ion-input type="text" placeholder="Full Name"></ion-input>
+          </ion-item>
+
+          <ion-item >
+              <ion-icon name="md-keypad" item-left></ion-icon>
+              <ion-input type="num" placeholder="Phone Number"></ion-input>
+          </ion-item>
+          <ion-item  >
+              <ion-icon name="md-pin" item-left></ion-icon>
+              <ion-label>Countery</ion-label>
+              <ion-select >
+                  <ion-option>England</ion-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-icon name="ios-navigate" item-left></ion-icon>
+              <ion-label>City</ion-label>
+              <ion-select >
+                  <ion-option>LiverPool</ion-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item  >
+              <ion-icon name="md-locate" item-left></ion-icon>
+              <ion-label>Address</ion-label>
+              <ion-select >
+                  <ion-option>LiverPool</ion-option>
+              </ion-select>
+          </ion-item>
+          
+      </ion-list>
+    
+  </div>
+
+</ion-content>
+<ion-footer class="signFoot">
+    <button ion-button block color="mainColor" [navPush]="TabsPage">Submit</button>
+</ion-footer>

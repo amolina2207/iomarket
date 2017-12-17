@@ -19,4 +19,7 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
+  animateVarible: boolean = false;
+  
 }

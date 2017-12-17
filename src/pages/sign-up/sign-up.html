@@ -1,18 +1,37 @@
-<!--
-  Generated template for the SignUpPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
+<ion-header class="signHead">
   <ion-navbar>
-    <ion-title>sign-up</ion-title>
   </ion-navbar>
-
 </ion-header>
+<ion-content >
+  <div class="signApp">
+      <img  src="assets/img/logo.png"/>
+      <h4>Sign Up</h4>
+      <ion-list>
+          <ion-item>
+              <ion-icon name="md-person" item-left></ion-icon>
+              <ion-input type="text" placeholder="Username"></ion-input>
+          </ion-item>
 
+          <ion-item>
+              <ion-icon name="md-mail" item-left></ion-icon>
+              <ion-input type="email" placeholder="E-mail"></ion-input>
+          </ion-item>
 
-<ion-content padding>
+          <ion-item  >
+              <ion-icon name="md-lock" item-left></ion-icon>
+              <ion-input type="password" placeholder="Password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-icon name="md-key" item-left></ion-icon>
+              <ion-input type="password" placeholder="Retype Password"></ion-input>
+          </ion-item>
+      </ion-list>
+      <button ion-button block color="mainColor"[navPush]="TabsPage">Sign Up</button>
+    
+  </div>
 
 </ion-content>
+<ion-footer class="signFoot">
+    <button ion-button block color="mainColor" (click)="goToShippingAddress()">Shipping Address</button>
+</ion-footer>

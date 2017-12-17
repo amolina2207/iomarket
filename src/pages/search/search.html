@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+        <button ion-button (click)="logout()">
+          <ion-icon name="md-power"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+  <div class="newForm">
+      <ion-list>
+          <ion-item >
+              <ion-input type="text" placeholder="Search"></ion-input>
+          </ion-item>
+      </ion-list>
+  </div>
+  <button ion-button block color="mainColor" (click)=" switchTabs() " >Search</button>
+</ion-content>
