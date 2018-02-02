@@ -4,34 +4,45 @@
 </ion-header>
 <ion-content >
   <div class="signApp">
-      <img  src="assets/img/logo.png"/>
+      <!--<img  src="assets/img/logo.png"/>-->
       <h4>Sign Up</h4>
       <ion-list>
           <ion-item>
-              <ion-icon name="md-person" item-left></ion-icon>
-              <ion-input type="text" placeholder="Username"></ion-input>
+              <ion-icon name="md-identifier" item-left></ion-icon>
+              <ion-input type="text" [(ngModel)]="signup.identifier" placeholder="Identifier"></ion-input>
           </ion-item>
 
           <ion-item>
               <ion-icon name="md-mail" item-left></ion-icon>
-              <ion-input type="email" placeholder="E-mail"></ion-input>
+              <ion-input type="email" [(ngModel)]="signup.email" placeholder="E-mail"></ion-input>
           </ion-item>
 
           <ion-item  >
-              <ion-icon name="md-lock" item-left></ion-icon>
-              <ion-input type="password" placeholder="Password"></ion-input>
+              <ion-icon name="md-pass" item-left></ion-icon>
+              <ion-input type="password" [(ngModel)]="signup.password" placeholder="Password"></ion-input>
           </ion-item>
 
           <ion-item>
-              <ion-icon name="md-key" item-left></ion-icon>
-              <ion-input type="password" placeholder="Retype Password"></ion-input>
+              <ion-icon name="md-pass" item-left></ion-icon>
+              <ion-input type="password" [(ngModel)]="signup.r_password" placeholder="Retype Password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-icon name="md-firstName" item-left></ion-icon>
+              <ion-input type="text" [(ngModel)]="signup.firstName" placeholder="Firstname"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-icon name="md-lastName" item-left></ion-icon>
+              <ion-input type="text" [(ngModel)]="signup.lastName" placeholder="Lastname"></ion-input>
           </ion-item>
       </ion-list>
-      <button ion-button block color="mainColor"[navPush]="TabsPage">Sign Up</button>
+      <!--<button ion-button block color="mainColor" [navPush]="TabsPage">Sign Up</button>-->
+      <button ion-button block color="mainColor" type="button" (click)="signUp()">Sign Up</button>
     
   </div>
 
 </ion-content>
-<ion-footer class="signFoot">
+<!--<ion-footer class="signFoot">
     <button ion-button block color="mainColor" (click)="goToShippingAddress()">Shipping Address</button>
-</ion-footer>
+</ion-footer>-->

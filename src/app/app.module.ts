@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
@@ -17,7 +18,9 @@ import { CartPage } from '../pages/cart/cart';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { IonicStorageModule } from '@ionic/storage';
+import { Storage, IonicStorageModule } from '@ionic/storage';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AuthProvider } from '../providers/auth/auth';
 
 var config = {
       backButtonText: '',
@@ -28,6 +31,13 @@ var config = {
       tabsPlacement: 'bottom',
       pageTransition: 'ios',
     };
+
+export function jwtOptionsFactory(storage: Storage) {
+  return {
+    tokenGetter: () => storage.get(AuthProvider.jwtTokenName),
+    whitelistedDomains: ['localhost:9000']
+  }
+}
 
 @NgModule({
   declarations: [
@@ -47,7 +57,15 @@ var config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, config),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpClientModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+        deps: [Storage]
+      }
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +85,8 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}

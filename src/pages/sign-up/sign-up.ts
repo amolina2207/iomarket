@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { ShippingAddressPage } from '../shipping-address/shipping-address';
-
-/**
- * Generated class for the SignUpPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AuthProvider } from '../../providers/auth/auth';
+import { SignUp } from '../../models/sign-up';
 
 @IonicPage()
 @Component({
@@ -17,15 +10,23 @@ import { ShippingAddressPage } from '../shipping-address/shipping-address';
 })
 export class SignUpPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  signup: SignUp = new SignUp();
+  messages: Array<string>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignUpPage');
+  signUp(){
+    console.log("signUp="+JSON.stringify(this.signup));
+    this.messages = [];
+    this.auth.signup(this.signup).subscribe(
+      token => {
+        console.log("SignUp: OK");
+      },
+      error => {
+        console.log("SignUp: NOK");
+        this.messages.push("Failed SignUp");
+        console.log(error);
+      })
   }
-
-	goToShippingAddress(){
-		this.navCtrl.push(ShippingAddressPage);
-	}
-
 }

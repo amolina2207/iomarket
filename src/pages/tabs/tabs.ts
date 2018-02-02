@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { HomePage } from '../home/home';
 import { SearchPage } from '../search/search';
 import { NotificationsPage } from '../notifications/notifications';
@@ -18,6 +17,6 @@ export class TabsPage {
   tab5Root = SettingPage;
 
   constructor() {
-
   }
+
 }

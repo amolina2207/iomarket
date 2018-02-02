@@ -1,44 +1,32 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
-import { SignInPage } from '../sign-in/sign-in';
+import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CheckOutPage } from '../check-out/check-out';
-
-/**
- * Generated class for the CartPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AuthProvider } from '../../providers/auth/auth';
+import { Storage } from '@ionic/storage';
+import { BasePage } from '../base/base';
 
 @IonicPage()
 @Component({
   selector: 'page-cart',
   templateUrl: 'cart.html',
 })
-export class CartPage {
+export class CartPage extends BasePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public authProvider: AuthProvider) {
+    super(authProvider);
+    console.log("constructor: CartPage");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
+  ionViewWillEnter(){
+    console.log("ionViewWillEnter CartPage"); 
   }
 
    items=[
-    {img:'assets/img/001.png',title:'Green Apple',count:500,oldCost:'200',cost:'150',offer:10},
-    {img:'assets/img/002.png',title:'Red Meat',count:2,oldCost:'150',cost:'150',offer:0},
-    {img:'assets/img/009.png',title:'Croissant',count:1,oldCost:'150',cost:'150',offer:0},
-    {img:'assets/img/008.png',title:'Carrots',count:2,oldCost:'150',cost:'150',offer:0},
-  ]
-
-  logout(){
-  	this.storage.remove('currentUser').then((val) => {
-    	this.navCtrl.setRoot(SignInPage).then((val) => {
-        console.log('setRoot(SignInPage)');
-      });
-  	});
-  }
+    {img:'assets/img/001.pn',title:'Green Apple',count:500,oldCost:'200',cost:'150',offer:10}/*,
+    {img:'assets/img/002.pn',title:'Red Meat',count:2,oldCost:'150',cost:'150',offer:0},
+    {img:'assets/img/009.pn',title:'Croissant',count:1,oldCost:'150',cost:'150',offer:0},
+    {img:'assets/img/008.pn',title:'Carrots',count:2,oldCost:'150',cost:'150',offer:0},*/
+  ];
 
   removeItem(item){
   	let index = this.items.indexOf(item);

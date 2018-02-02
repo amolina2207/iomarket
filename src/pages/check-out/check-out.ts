@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { SignInPage } from '../sign-in/sign-in';
+import { AuthProvider } from '../../providers/auth/auth';
+import { BasePage } from '../base/base';
 
 /**
  * Generated class for the CheckOutPage page.
@@ -15,13 +16,10 @@ import { SignInPage } from '../sign-in/sign-in';
   selector: 'page-check-out',
   templateUrl: 'check-out.html',
 })
-export class CheckOutPage {
+export class CheckOutPage extends BasePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CheckOutPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public authProvider: AuthProvider) {
+    super(authProvider);
   }
 
   items=[
@@ -32,13 +30,6 @@ export class CheckOutPage {
   
   activeVisa = null;
 
-  logout(){
-  	this.storage.remove('currentUser').then((val) => {
-    	this.navCtrl.setRoot(SignInPage).then((val) => {
-        console.log('setRoot(SignInPage)');
-      });
-  	});
-  }
 
 	toggleActive(active) {
 	    if (this.isClickedActive(active)) {

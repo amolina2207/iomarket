@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { Storage } from '@ionic/storage';
+import { BasePage } from '../base/base';
 
 /**
  * Generated class for the SearchPage page.
@@ -13,13 +16,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-search',
   templateUrl: 'search.html',
 })
-export class SearchPage {
+export class SearchPage extends BasePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider, public storage: Storage) {
+  	super(authProvider);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
-  }
+ 
 
 }

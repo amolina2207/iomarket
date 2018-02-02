@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-
-import { SignInPage } from '../sign-in/sign-in';
 import { MsgModalPage } from '../msg-modal/msg-modal';
-
+import { AuthProvider } from '../../providers/auth/auth';
+import { Storage } from '@ionic/storage';
+import { BasePage } from '../base/base';
 /**
  * Generated class for the NotificationsPage page.
  *
@@ -16,10 +16,11 @@ import { MsgModalPage } from '../msg-modal/msg-modal';
   selector: 'page-notifications',
   templateUrl: 'notifications.html',
 })
-export class NotificationsPage {
+export class NotificationsPage extends BasePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public authProvider: AuthProvider, public storage: Storage) {
+    super(authProvider);
+  }  
 
   items=[
     {day:'10',month:'Feb',time:'10Am',event:'Soon the new offer of the next week'},
@@ -28,14 +29,6 @@ export class NotificationsPage {
   ]
 
   num: number;
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationsPage');
-  }
-
-  logout(){
-  	this.navCtrl.setRoot(SignInPage);
-  }
 
   readMsg(item){
     item.num=1;

@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
-
-/**
- * Generated class for the SignInPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AuthProvider } from '../../providers/auth/auth';
+import { SignIn } from '../../models/sign-in';
 
 @IonicPage()
 @Component({
@@ -16,15 +11,28 @@ import { SignUpPage } from '../sign-up/sign-up';
 })
 export class SignInPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  signin: SignIn = new SignIn();
+  messages: Array<string>;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignInPage');
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider) {}
 
   goToSignUp(){
     this.navCtrl.push(SignUpPage);
+  }
+
+  login(){
+    console.log("signin="+JSON.stringify(this.signin));
+    this.messages = [];
+    this.auth.login(this.signin).subscribe(
+      token => {
+        console.log("Login: OK");
+      },
+      error => {
+        console.log("Login: NOK");
+        this.messages.push("Failed SignIn");
+        console.log(error);
+      }
+    );
   }
 
 }
