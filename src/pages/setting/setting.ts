@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { Storage } from '@ionic/storage';
 import { BasePage } from '../base/base';
+import { ManagementPage } from '../management/management';
 
 /**
  * Generated class for the SettingPage page.
@@ -20,6 +21,10 @@ export class SettingPage extends BasePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider, public storage: Storage) {
   	super(authProvider);
+  }
+
+  goToManagement(){
+  	this.navCtrl.setRoot(ManagementPage);
   }
 
  

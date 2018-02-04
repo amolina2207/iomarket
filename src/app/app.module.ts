@@ -15,6 +15,7 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 import { MsgModalPage } from '../pages/msg-modal/msg-modal';
 import { CheckOutPage } from '../pages/check-out/check-out';
 import { CartPage } from '../pages/cart/cart';
+import { ManagementPage } from '../pages/management/management';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -52,7 +53,8 @@ export function jwtOptionsFactory(storage: Storage) {
     NotificationsPage,
     MsgModalPage,
     CheckOutPage,
-    CartPage
+    CartPage,
+    ManagementPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ export function jwtOptionsFactory(storage: Storage) {
     NotificationsPage,
     MsgModalPage,
     CheckOutPage,
-    CartPage
+    CartPage,
+    ManagementPage
   ],
   providers: [
     StatusBar,
