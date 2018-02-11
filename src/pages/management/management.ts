@@ -4,6 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { Storage } from '@ionic/storage';
 import { BasePage } from '../base/base';
 import { Product } from '../../models/product';
+import { FileChooser } from '@ionic-native/file-chooser';
 
 /**
  * Generated class for the ManagementPage page.
@@ -24,7 +25,8 @@ export class ManagementPage  extends BasePage{
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public authProvider: AuthProvider,
-              public storage: Storage) {
+              public storage: Storage,
+              private fileChooser: FileChooser) {
     super(authProvider);
   }
 
@@ -34,5 +36,12 @@ export class ManagementPage  extends BasePage{
 
   saveProduct(){
   	console.log(JSON.stringify(this.product));
+  }
+
+  chooseFile(){
+    console.log("chooseFile...");
+    this.fileChooser.open()
+      .then(uri => console.log(uri))
+      .catch(e => console.log(e));
   }
 }

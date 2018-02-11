@@ -37,6 +37,14 @@
               <ion-icon name="md-product-tags" item-left></ion-icon>
               <ion-input type="text" [(ngModel)]="product.tags" placeholder="Tags..."></ion-input>
           </ion-item>
+
+          <ion-item>
+           
+              <ion-col col-12>
+                <ion-icon name="md-add" (click)="chooseFile()"></ion-icon>
+              </ion-col>
+           
+          </ion-item>
     </ion-list>
 
 	<button ion-button block color="secColor"  (click)="saveProduct()">Save</button>

@@ -22,6 +22,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthProvider } from '../providers/auth/auth';
+import { FileChooser } from '@ionic-native/file-chooser';
+
 
 var config = {
       backButtonText: '',
@@ -89,7 +91,8 @@ export function jwtOptionsFactory(storage: Storage) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    FileChooser
   ]
 })
 export class AppModule {}
